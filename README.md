@@ -9,7 +9,8 @@
 
 ## What is Script Runner
 
-Create and customize commands to execute command line scripts by filling a configured form.
+Run command line scripts (with parameters) directly from #VSCode with a configured form. 
+Create and customize your own commands to simplify your way of working.
 
 
 
