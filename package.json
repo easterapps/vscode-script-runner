@@ -1,0 +1,135 @@
+{
+	"name": "script-runner",
+	"displayName": "Script Runner",
+	"description": "Configurable shell command/script runner",
+	"icon": "resources/logo/icon_128.gif",
+	"version": "0.2.1",
+	"publisher": "easterapps",
+	"engines": {
+		"vscode": "^1.22.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"keywords": [
+		"shell",
+		"command line",
+		"script"
+	],
+	"activationEvents": [
+		"*",
+		"onCommand:script-runner.run",
+		"onCommand:script-runner.create"
+	],
+	"main": "./out/extension",
+	"contributes": {
+		"commands": [
+			{
+				"category": "Script Runner",
+				"command": "script-runner.run",
+				"title": "Run"
+			}
+		],
+		"configuration": {
+			"title": "Script Runner",
+			"properties": {
+				"script-runner.statusBar": {
+					"type": "boolean",
+					"default": false,
+					"description": "Shortcut in Bottom Status Bar"
+				},
+				"script-runner.commands": {
+					"type": "object",
+					"properties": {
+						"statusBar": {
+							"type": "boolean",
+							"default": false,
+							"description": "Shortcut in Bottom Status Bar"
+						},
+						"commands": {
+							"type": "array",
+							"description": "List of commands.",
+							"items": {
+								"type": "object",
+								"properties": {
+									"identifier": {
+										"type": "string",
+										"description": "Identifier used to do key binding. Use alphanumerical and hyphen/underscore only.",
+										"required": true
+									},
+									"description": {
+										"type": "string",
+										"description": "Description of the command.",
+										"required": true
+									},
+									"command": {
+										"type": "string",
+										"description": "Command to execute (with variables).",
+										"required": true
+									},
+									"working_directory": {
+										"type": "string",
+										"description": "The working directory in which to execute the script."
+									},
+									"form": {
+										"type": "array",
+										"description": "A list of questions to ask in order to obtain values for variables.",
+										"items": {
+											"type": "object",
+											"properties": {
+												"variable": {
+													"type": "string",
+													"description": "The variable name.",
+													"required": true
+												},
+												"question": {
+													"type": "string",
+													"description": "The question to ask the user.",
+													"required": true
+												},
+												"default": {
+													"type": "string",
+													"description": "The default value to put in the field. Only for text inputs."
+												},
+												"options": {
+													"type": "array",
+													"items": {
+														"type": "string"
+													}
+												}
+											}
+										}
+									},
+									"show_in_console": {
+										"type": "boolean",
+										"description": "Whether the output of the command should be displayed in the console.",
+										"default": false
+									}
+								}
+							}
+						},
+						"variables": {
+							"type": "object",
+							"description": "Name => value mapping of variables available to all scripts."
+						}
+					}
+				}
+			}
+		}
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"postinstall": "node ./node_modules/vscode/bin/install",
+		"test": "npm run compile && node ./node_modules/vscode/bin/test",
+		"package": "vsce package"
+	},
+	"devDependencies": {
+		"typescript": "^2.6.1",
+		"vscode": "^1.1.6",
+		"tslint": "^5.8.0",
+		"@types/node": "^7.0.43",
+		"@types/mocha": "^2.2.42"
+	}
+}
