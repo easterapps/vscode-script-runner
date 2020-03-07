@@ -29,8 +29,4 @@ jobs:
       env:
         CI: true
         
-    - name: vsce publish
-      uses: sigma/vsce-publish-action@v0.0.2
-      with:
-      # vsce token
-        vsce_token:"k4gawgnj3iub4j3bg2oictml3r5gcgemzji7hdubhu4rmq7b7wlq"
+    
