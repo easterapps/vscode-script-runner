@@ -16,7 +16,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [10.x, 12.x]
+        node-version: [12.x]
 
     steps:
     - uses: actions/checkout@v2
@@ -29,6 +29,7 @@ jobs:
     - run: npm run compile 
     - name: GitHub Action for vsce
       uses: lannonbr/vsce-action@2.0.0
+      shell: vsce package
 
       env:
         CI: true
