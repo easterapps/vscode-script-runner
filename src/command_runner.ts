@@ -25,6 +25,7 @@ export class CommandRunner {
 
 			builtCommand = this.variableManager.resolveVariables(builtCommand, variables);
 
+			const showInOutput = command.show_in_console
 			const options = {
 				cwd: command.working_directory ? this.variableManager.resolveVariables(command.working_directory, variables) : undefined,
 			};
@@ -34,17 +35,18 @@ export class CommandRunner {
 				return;
 			}
 
-			this.outputChannel.show(true);
-			this.outputChannel.appendLine('Executing command: ' + builtCommand + ' with options ' + JSON.stringify(options));
+			if (showInOutput) {
+				this.outputChannel.show(true);
+				this.print(showInOutput, 'Executing command: ' + builtCommand + ' with options ' + JSON.stringify(options));
+			}
 
 			child_process.exec(builtCommand, options, (err, stdout, stderr) => {
 				if (err) {
 					console.error(err);
-					this.outputChannel.appendLine(err.message);
+					this.print(showInOutput, err.message)
 					return;
 				}
-
-				this.outputChannel.append(stdout);
+				this.print(showInOutput, stdout);
 			});
 		};
 
@@ -94,6 +96,12 @@ export class CommandRunner {
 		} else {
 			executeCommandInShell();
 		}
+	}
+
+	private print(showInOutput: boolean | undefined, text: string) {
+		if (showInOutput != undefined)
+			if (showInOutput)
+				this.outputChannel.appendLine(text);
 	}
 
 	public runCommand() {

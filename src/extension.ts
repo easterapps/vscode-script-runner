@@ -16,8 +16,6 @@ export function activate(context: vscode.ExtensionContext) {
 	// Initial command registration
 	commandManager.registerCustomCommands();
 
-
-
 	const onDidChangeConfiguration = vscode.workspace.onDidChangeConfiguration(() => {
 		outputChannel.appendLine('Configuration changed... Refreshing...');
 		commandManager.registerCustomCommands();
