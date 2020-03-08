@@ -29,7 +29,9 @@ jobs:
     - run: npm run compile 
     - name: GitHub Action for vsce
       uses: lannonbr/vsce-action@2.0.0
-      shell: vsce package
+      with:
+          args: "package"
+    
 
       env:
         CI: true
