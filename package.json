@@ -90,6 +90,11 @@
 													"type": "string",
 													"description": "The default value to put in the field. Only for text inputs."
 												},
+												"password": {
+													"type": "boolean",
+													"description": "Field is a password",
+													"default": false
+												},
 												"options": {
 													"type": "array",
 													"items": {

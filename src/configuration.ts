@@ -16,6 +16,7 @@ export interface IFormConfiguration {
 	variable: string;
 	question: string;
 	default?: string;
+	password?: boolean;
 	options?: string[];
 }
 

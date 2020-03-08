@@ -63,9 +63,11 @@ export class CommandRunner {
 						ignoreFocusOut: true,
 					});
 				} else {
+
 					return window.showInputBox({
 						prompt: step.question,
 						value: step.default,
+						password: step.password,
 						ignoreFocusOut: true,
 					});
 				}

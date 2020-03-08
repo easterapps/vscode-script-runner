@@ -73,19 +73,20 @@ Sample command definition:
 }
 ```
 
-| Name                | Description                                                                       | Required | Type    |
-| ------------------- | --------------------------------------------------------------------------------- | -------- | ------- |
-| `identifier`        | Identifier used to do key binding. Use alphanumerical and hyphen/underscore only. | yes      | string  |
-| `description`       | Description of the command.                                                       | yes      | string  |
-| `command`           | Command to execute (with variables).                                              | yes      | string  |
-| `working_directory` | The working directory in which to execute the script.                             |          | string  |
-| `form`              | A list of questions to ask in order to obtain values for variables.               |          | array   |
-| `variable`          | The variable name.                                                                |          | string  |
-| `question`          | The question to ask the user.                                                     |          | string  |
-| `default`           | The default value to put in the field. Only for text inputs.                      |          | string  |
-| `show_in_console`   | Default is false. Show the script output in OutputChannel "Script Runner"         |          | boolean |
-| `options`           | List of options (string)                                                          |          | array   |
-| `variables`         | List of variables (string)                                                        |          | array   |
+| Name                | Description                                                                                       | Required | Type    |
+| ------------------- | ------------------------------------------------------------------------------------------------- | -------- | ------- |
+| `identifier`        | Identifier used to do key binding. Use alphanumerical and hyphen/underscore only.                 | yes      | string  |
+| `description`       | Description of the command.                                                                       | yes      | string  |
+| `command`           | Command to execute (with variables).                                                              | yes      | string  |
+| `working_directory` | The working directory in which to execute the script.                                             |          | string  |
+| `form`              | A list of questions to ask in order to obtain values for variables.                               |          | array   |
+| `variable`          | The variable name.                                                                                |          | string  |
+| `question`          | The question to ask the user.                                                                     |          |
+| `password`          | Input is a password. Default is false.                                                            |          | boolean |
+| `default`           | The default value to put in the field. Only for text inputs.                                      |          | string  |
+| `show_in_console`   | Default is false. Show the script output in OutputChannel "Script Runner". Passwords are visible. |          | boolean |
+| `options`           | List of options (string)                                                                          |          | array   |
+| `variables`         | List of variables (string)                                                                        |          | array   |
 
 ## Full Configuration Sample
 
