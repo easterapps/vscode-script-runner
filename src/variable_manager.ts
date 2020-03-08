@@ -4,7 +4,7 @@ import { IConfiguration } from "./configuration";
 
 export class VariableManager {
 	public getVariables(): { [id: string]: string } {
-		const configuration = workspace.getConfiguration().get<IConfiguration>('script-runner.commands');
+		const configuration = workspace.getConfiguration().get<IConfiguration>('script-runner.definitions');
 
 		if (!configuration) {
 			return {};

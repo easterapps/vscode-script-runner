@@ -42,7 +42,7 @@
 					"default": false,
 					"description": "Shortcut in Bottom Status Bar"
 				},
-				"script-runner.commands": {
+				"script-runner.definitions": {
 					"type": "object",
 					"properties": {
 						"statusBar": {

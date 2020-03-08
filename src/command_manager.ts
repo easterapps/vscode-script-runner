@@ -11,7 +11,7 @@ export class CommandManager {
 	}
 
 	public registerCustomCommands() {
-		const configuration = workspace.getConfiguration().get<IConfiguration>('script-runner.commands');
+		const configuration = workspace.getConfiguration().get<IConfiguration>('script-runner.definitions');
 
 		if (!configuration) {
 			return;

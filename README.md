@@ -27,7 +27,7 @@ Follow the instructions [How to setup Script Runner](#how-to-setup-script-runner
 
 ```json
   "script-runner.statusBar" : false,
-  "script-runner.commands": {
+  "script-runner.definitions": {
     "commands": [
       
       

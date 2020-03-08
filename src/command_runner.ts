@@ -97,7 +97,7 @@ export class CommandRunner {
 	}
 
 	public runCommand() {
-		const configuration = workspace.getConfiguration().get<IConfiguration>('script-runner.commands');
+		const configuration = workspace.getConfiguration().get<IConfiguration>('script-runner.definitions');
 
 		if (!configuration) {
 			return;
