@@ -1,8 +1,7 @@
 <h1>Script Runner for VS Code</h1>
 
-![version](https://vsmarketplacebadge.apphb.com/version/easterapps.script-runner.svg)
-![version](https://vsmarketplacebadge.apphb.com/rating-star/easterapps.script-runner.svg)
-![Pipeline](https://github.com/easterapps/vscode-script-runner/workflows/Node.js%20CI/badge.svg)
+![version](https://vsmarketplacebadge.apphb.com/version/easterapps.script-runner.png)
+![version](https://vsmarketplacebadge.apphb.com/rating-star/easterapps.script-runner.png)
 
 
 - [What is Script Runner](#what-is-script-runner)
