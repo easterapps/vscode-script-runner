@@ -2,7 +2,7 @@
 
 ![version](https://vsmarketplacebadge.apphb.com/version/easterapps.script-runner.svg)
 ![version](https://vsmarketplacebadge.apphb.com/rating-star/easterapps.script-runner.svg)
-![installs](https://vsmarketplacebadge.apphb.com/installs/easterapps.script-runner.svg)
+![Pipeline](https://github.com/easterapps/vscode-script-runner/workflows/Node.js%20CI/badge.svg)
 
 
 - [What is Script Runner](#what-is-script-runner)
