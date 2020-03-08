@@ -1,7 +1,7 @@
 # This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
 
-name: Node.js CI
+name: Pipeline
 
 on:
   push:
@@ -26,6 +26,9 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - run: npm ci
     - run: npm run compile 
+    - name: GitHub Action for vsce
+      uses: lannonbr/vsce-action@2.0.0
+    - run: vsce package
 
       env:
         CI: true
