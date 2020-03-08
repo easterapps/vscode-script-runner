@@ -45,11 +45,6 @@
 				"script-runner.definitions": {
 					"type": "object",
 					"properties": {
-						"statusBar": {
-							"type": "boolean",
-							"default": false,
-							"description": "Shortcut in Bottom Status Bar"
-						},
 						"commands": {
 							"type": "array",
 							"description": "List of commands.",
