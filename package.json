@@ -3,7 +3,7 @@
 	"displayName": "Script Runner",
 	"description": "Configurable shell command/script runner",
 	"icon": "resources/logo/icon_128.gif",
-	"version": "0.2.3",
+	"version": "0.3.0",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/easterapps/vscode-script-runner"
