@@ -24,11 +24,11 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
+    - run: npm install
     - run: npm ci
     - run: npm run compile 
     - name: GitHub Action for vsce
       uses: lannonbr/vsce-action@2.0.0
-    - run: vsce package
 
       env:
         CI: true
