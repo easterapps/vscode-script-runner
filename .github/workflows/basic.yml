@@ -29,8 +29,8 @@ jobs:
     - run: npm run compile 
     - name: GitHub Action for vsce
       with:
-          args: "publish -p $VSCE_TOKEN"
+        args: "publish -p $VSCE_TOKEN"
       env:
-          VSCE_TOKEN: ${{ secrets.vsce_token }}
+        VSCE_TOKEN: ${{ secrets.vsce_token }}
         
     
