@@ -27,13 +27,12 @@ jobs:
     - run: npm install
     - run: npm ci
     - run: npm run compile 
-    - name: GitHub Action for vsce
-      uses: lannonbr/vsce-action@2.0.0
+    - name: vsce publish
+      uses: sigma/vsce-publish-action@v0.0.2
       with:
-          args: "package"
-    
-
+      # vsce token 
+        vsce_token: "$VSCE_TOKEN"
       env:
-        CI: true
+        VSCE_TOKEN: ${{ secrets.vsce_token }}
         
     
