@@ -126,9 +126,9 @@ Sample command definition:
             "variable": "$var1",
             "question": "What is $var1?",
             "default": "Test 1"
-          },
-          "show_in_console":true
-        ]
+          }
+        ],
+        "show_in_console":true
       }
     ],
     "variables": {
