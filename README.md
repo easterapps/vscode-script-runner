@@ -82,7 +82,7 @@ Sample command definition:
 | `form`              | A list of questions to ask in order to obtain values for variables.                               |          | array   |
 | `variable`          | The variable name.                                                                                |          | string  |
 | `question`          | The question to ask the user.                                                                     |          |
-| `password`          | Input is a password. Default is false.                                                            |          | boolean |
+| `password`          | Input is a password. Default is false.  Suggestion: use also show_in_console: false               |          | boolean |
 | `default`           | The default value to put in the field. Only for text inputs.                                      |          | string  |
 | `show_in_console`   | Default is false. Show the script output in OutputChannel "Script Runner". Passwords are visible. |          | boolean |
 | `options`           | List of options (string)                                                                          |          | array   |
@@ -170,4 +170,4 @@ To install, execute Extensions: Install from VSIX... in the Command Palette (ctr
 
 File bugs, feature requests in [Github Issues](<[https://link](https://github.com/easterapps/vscode-script-runner/issues)>).
 
-Leave a review on Visual Studio Marketplace.
+**Leave a review on Visual Studio Marketplace.**
