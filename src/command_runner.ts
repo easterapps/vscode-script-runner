@@ -17,7 +17,7 @@ export class CommandRunner {
 	public executeCommand(command: ICommandConfiguration) {
 		const executeCommandInShell = () => {
 			let builtCommand = command.command;
-
+			let options;
 			if (!builtCommand) {
 				window.showErrorMessage('The executed command does not define a command to execute. Nothing will be executed.');
 				return;
@@ -26,10 +26,20 @@ export class CommandRunner {
 			builtCommand = this.variableManager.resolveVariables(builtCommand, variables);
 
 			const showInOutput = command.show_in_console
-			const options = {
-				cwd: command.working_directory ? this.variableManager.resolveVariables(command.working_directory, variables) : undefined,
-			};
 
+			const useCustomShell = workspace.getConfiguration().get<Boolean>('script-runner.customShell.enabled');
+
+
+			if (useCustomShell) {
+				options = {
+					cwd: command.working_directory ? this.variableManager.resolveVariables(command.working_directory, variables) : undefined,
+					shell: workspace.getConfiguration().get<string>('script-runner.customShell.path'),
+				};
+			} else {
+				options = {
+					cwd: command.working_directory ? this.variableManager.resolveVariables(command.working_directory, variables) : undefined,
+				};
+			}
 			if (!builtCommand) {
 				window.showErrorMessage('The executed command produced an empty command string. Nothing will be executed.');
 				return;

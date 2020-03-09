@@ -10,6 +10,7 @@
   - [Use your defined Commands from Command Palette](#use-your-defined-commands-from-command-palette)
   - [Use your defined Commands from Status Bar](#use-your-defined-commands-from-status-bar)
   - [Use keyboard shortcut for specific defined commands](#use-keyboard-shortcut-for-specific-defined-commands)
+- [Use a different shell](#use-a-different-shell)
 - [Latest Development Build](#latest-development-build)
 - [Contributing](#contributing)
 
@@ -159,6 +160,13 @@ If you enable the statusbar item, it will be placed at the right corner of the b
 ### Use keyboard shortcut for specific defined commands
 
 You can bind a keyboard shortcut to the command. Keyboard Shortcuts `script-runner.$command_identifier$`.
+
+## Use a different shell
+
+```json
+"script-runner.customShell.enabled": true,
+"script-runner.customShell.path": "/bin/sh",
+```
 
 ## Latest Development Build
 

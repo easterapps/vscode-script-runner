@@ -42,6 +42,16 @@
 					"default": false,
 					"description": "Shortcut in Bottom Status Bar"
 				},
+				"script-runner.customShell.enabled": {
+					"type": "boolean",
+					"default": false,
+					"description": "Use a different shell, defined in script-runner.customShell.path"
+				},
+				"script-runner.customShell.path": {
+					"type": "string",
+					"default": "/bin/sh",
+					"description": "Shell to execute the command with"
+				},
 				"script-runner.definitions": {
 					"type": "object",
 					"properties": {
