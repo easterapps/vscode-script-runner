@@ -31,6 +31,6 @@ jobs:
       with:
           args: "publish -p $VSCE_TOKEN"
       env:
-        VSCE_TOKEN: ${{ secrets.vsce_token }}
+          VSCE_TOKEN: ${{ secrets.vsce_token }}
         
     
