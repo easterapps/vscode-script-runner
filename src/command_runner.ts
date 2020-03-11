@@ -1,7 +1,8 @@
-import * as child_process from "child_process";
-import { workspace, window, OutputChannel } from "vscode";
+
+import { workspace, window, OutputChannel, TerminalOptions } from "vscode";
 import { IConfiguration, ICommandConfiguration, IFormConfiguration } from "./configuration";
 import { VariableManager } from "./variable_manager";
+import { Terminal } from "./terminal";
 
 export class CommandRunner {
 	private outputChannel: OutputChannel;
@@ -17,7 +18,10 @@ export class CommandRunner {
 	public executeCommand(command: ICommandConfiguration) {
 		const executeCommandInShell = () => {
 			let builtCommand = command.command;
-			let options;
+			let currentTerminal;
+			let options: TerminalOptions;
+
+
 			if (!builtCommand) {
 				window.showErrorMessage('The executed command does not define a command to execute. Nothing will be executed.');
 				return;
@@ -25,39 +29,31 @@ export class CommandRunner {
 
 			builtCommand = this.variableManager.resolveVariables(builtCommand, variables);
 
-			const showInOutput = command.show_in_console
-
-			const useCustomShell = workspace.getConfiguration().get<Boolean>('script-runner.customShell.enabled');
-
-
-			if (useCustomShell) {
-				options = {
-					cwd: command.working_directory ? this.variableManager.resolveVariables(command.working_directory, variables) : undefined,
-					shell: workspace.getConfiguration().get<string>('script-runner.customShell.path'),
-				};
-			} else {
-				options = {
-					cwd: command.working_directory ? this.variableManager.resolveVariables(command.working_directory, variables) : undefined,
-				};
-			}
 			if (!builtCommand) {
 				window.showErrorMessage('The executed command produced an empty command string. Nothing will be executed.');
 				return;
 			}
 
-			if (showInOutput) {
-				this.outputChannel.show(true);
-				this.print(showInOutput, 'Executing command: ' + builtCommand + ' with options ' + JSON.stringify(options));
-			}
 
-			child_process.exec(builtCommand, options, (err, stdout, stderr) => {
-				if (err) {
-					console.error(err);
-					this.print(showInOutput, err.message)
-					return;
-				}
-				this.print(showInOutput, stdout);
-			});
+
+			const useCustomShell = workspace.getConfiguration().get<Boolean>('script-runner.customShell.enabled');
+
+			if (useCustomShell) {
+
+				options = {
+					cwd: command.working_directory ? this.variableManager.resolveVariables(command.working_directory, variables) : undefined,
+					shellPath: workspace.getConfiguration().get<string>('script-runner.customShell.path'),
+				};
+
+			} else {
+				options = {
+					cwd: command.working_directory ? this.variableManager.resolveVariables(command.working_directory, variables) : undefined,
+				};
+
+			}
+			currentTerminal = Terminal.getTerminal(options);
+			currentTerminal.sendText(builtCommand);
+			this.outputChannel.appendLine('Executing command: ' + builtCommand + ' with options ' + JSON.stringify(options));
 		};
 
 		const variables: { [id: string]: string } = this.variableManager.getVariables();
@@ -110,12 +106,6 @@ export class CommandRunner {
 		}
 	}
 
-	private print(showInOutput: boolean | undefined, text: string) {
-		if (showInOutput != undefined)
-			if (showInOutput)
-				this.outputChannel.appendLine(text);
-	}
-
 	public runCommand() {
 		const configuration = workspace.getConfiguration().get<IConfiguration>('script-runner.definitions');
 
@@ -142,6 +132,7 @@ export class CommandRunner {
 			if (!value) {
 				return;
 			}
+
 
 			const command = commands[value];
 
