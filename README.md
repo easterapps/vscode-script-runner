@@ -49,7 +49,7 @@ Sample command definition:
   "identifier": "test",
   "description": "Test Runner",
   "command": "echo $var1 $var2",
-  "working_directory": "$tmp",
+  "working_directory": "./",
   "form": [
     {
       "variable": "$var1",
@@ -61,8 +61,7 @@ Sample command definition:
       "question": "What is $var2?",
       "options": ["Option 1", "Option 2", "Option 3"]
     }
-  ],
-  "show_in_console": true
+  ]
 }
 ```
 
@@ -74,20 +73,19 @@ Sample command definition:
 }
 ```
 
-| Name                | Description                                                                                       | Required | Type    |
-| ------------------- | ------------------------------------------------------------------------------------------------- | -------- | ------- |
-| `identifier`        | Identifier used to do key binding. Use alphanumerical and hyphen/underscore only.                 | yes      | string  |
-| `description`       | Description of the command.                                                                       | yes      | string  |
-| `command`           | Command to execute (with variables).                                                              | yes      | string  |
-| `working_directory` | The working directory in which to execute the script.                                             |          | string  |
-| `form`              | A list of questions to ask in order to obtain values for variables.                               |          | array   |
-| `variable`          | The variable name.                                                                                |          | string  |
-| `question`          | The question to ask the user.                                                                     |          |
-| `password`          | Input is a password. Default is false.  Suggestion: use also show_in_console: false               |          | boolean |
-| `default`           | The default value to put in the field. Only for text inputs.                                      |          | string  |
-| `show_in_console`   | Default is false. Show the script output in OutputChannel "Script Runner". Passwords are visible. |          | boolean |
-| `options`           | List of options (string)                                                                          |          | array   |
-| `variables`         | List of variables (string)                                                                        |          | array   |
+| Name                | Description                                                                         | Required | Type    |
+| ------------------- | ----------------------------------------------------------------------------------- | -------- | ------- |
+| `identifier`        | Identifier used to do key binding. Use alphanumerical and hyphen/underscore only.   | yes      | string  |
+| `description`       | Description of the command.                                                         | yes      | string  |
+| `command`           | Command to execute (with variables).                                                | yes      | string  |
+| `working_directory` | The working directory in which to execute the script.                               |          | string  |
+| `form`              | A list of questions to ask in order to obtain values for variables.                 |          | array   |
+| `variable`          | The variable name.                                                                  |          | string  |
+| `question`          | The question to ask the user.                                                       |          |
+| `password`          | Input is a password. Default is false.  Suggestion: use also show_in_console: false |          | boolean |
+| `default`           | The default value to put in the field. Only for text inputs.                        |          | string  |
+| `options`           | List of options (string)                                                            |          | array   |
+| `variables`         | List of variables (string)                                                          |          | array   |
 
 ## Full Configuration Sample
 
@@ -121,15 +119,14 @@ Sample command definition:
         "identifier": "test2",
         "description": "Test Runner 2",
         "command": "echo $var1 ",
-        "working_directory": "./",
+        "working_directory": "$tmp",
         "form": [
           {
             "variable": "$var1",
             "question": "What is $var1?",
             "default": "Test 1"
           }
-        ],
-        "show_in_console":true
+        ]
       }
     ],
     "variables": {

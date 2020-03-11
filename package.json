@@ -113,11 +113,6 @@
 												}
 											}
 										}
-									},
-									"show_in_console": {
-										"type": "boolean",
-										"description": "Whether the output of the command should be displayed in the console.",
-										"default": false
 									}
 								}
 							}
