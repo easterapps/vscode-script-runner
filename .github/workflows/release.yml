@@ -25,7 +25,14 @@ jobs:
     - run: npm install
     - run: npm ci
     - run: npm run compile 
-    - uses: lannonbr/vsce-action@master
+    - name: "Package release"
+      uses: lannonbr/vsce-action@master
+      with:
+        args: "package"
+      env:
+        VSCE_TOKEN: ${{ secrets.vsce_token }}
+    - name: "Publish to Marketplace"
+      uses: lannonbr/vsce-action@master
       with:
         args: "publish -p $VSCE_TOKEN"
       env:
