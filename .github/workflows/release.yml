@@ -5,7 +5,9 @@ name: release
 
 on:
   push:
-    branches: [ master, develop ]
+    tags:
+      - "1.*"
+      - "0.*"
 
 jobs:
   build:
@@ -36,13 +38,13 @@ jobs:
       with:
         repo_token: ${{ secrets.secret }}
         file: "script-runner-*"
-        tag: "release"
+        tag: ${{ github.ref }}
         overwrite: true
         file_glob: true
     - name: "Publish to Marketplace"
       uses: lannonbr/vsce-action@master
       with:
-        args: "publish -p $VSCE_TOKEN"
+        args: "publish ${{ github.ref }} -p $VSCE_TOKEN"
       env:
         VSCE_TOKEN: ${{ secrets.vsce_token }}
 
