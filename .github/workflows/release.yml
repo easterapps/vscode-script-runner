@@ -31,12 +31,6 @@ jobs:
         args: "package"
       env:
         VSCE_TOKEN: ${{ secrets.vsce_token }}
-    - name: "Publish to Marketplace"
-      uses: lannonbr/vsce-action@master
-      with:
-        args: "publish -p $VSCE_TOKEN"
-      env:
-        VSCE_TOKEN: ${{ secrets.vsce_token }}
     - name: Upload binaries to release
       uses: svenstaro/upload-release-action@v1-release
       with:
@@ -44,5 +38,12 @@ jobs:
         file: "/github/workspace/script-runner-*"
         overwrite: true
         file_glob: true
+    - name: "Publish to Marketplace"
+      uses: lannonbr/vsce-action@master
+      with:
+        args: "publish -p $VSCE_TOKEN"
+      env:
+        VSCE_TOKEN: ${{ secrets.vsce_token }}
+
         
     
