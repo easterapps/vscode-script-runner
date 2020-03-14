@@ -40,7 +40,7 @@ jobs:
       with:
         repo_token: ${{ secrets.secret }}
         file: "script-runner-*"
-        tag: $GIT_TAG_NAME
+        tag: "$GIT_TAG_NAME"
         overwrite: true
         file_glob: true
     - name: "Publish to Marketplace"
