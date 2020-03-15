@@ -165,12 +165,6 @@ You can bind a keyboard shortcut to the command. Keyboard Shortcuts `script-runn
 "script-runner.customShell.path": "/bin/sh",
 ```
 
-## Latest Development Build
-
-Download it [here](https://github.com/easterapps/vscode-script-runner).
-
-To install, execute Extensions: Install from VSIX... in the Command Palette (ctrl + shift + p)
-
 ## Contributing
 
 File bugs, feature requests in [Github Issues](<[https://link](https://github.com/easterapps/vscode-script-runner/issues)>).
