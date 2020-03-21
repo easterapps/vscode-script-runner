@@ -3,7 +3,7 @@
 	"displayName": "Script Runner",
 	"description": "Run command line scripts (with parameters) directly from #VSCode with a configured form. Create and customize your own commands to simplify your way of working.",
 	"icon": "resources/logo/icon_128.gif",
-	"version": "0.4.6",
+	"version": "0.5.0",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/easterapps/vscode-script-runner"
