@@ -11,7 +11,6 @@
   - [Use your defined Commands from Status Bar](#use-your-defined-commands-from-status-bar)
   - [Use keyboard shortcut for specific defined commands](#use-keyboard-shortcut-for-specific-defined-commands)
 - [Use a different shell](#use-a-different-shell)
-- [Latest Development Build](#latest-development-build)
 - [Contributing](#contributing)
 
 ## What is Script Runner
@@ -167,6 +166,6 @@ You can bind a keyboard shortcut to the command. Keyboard Shortcuts `script-runn
 
 ## Contributing
 
-File bugs, feature requests in [Github Issues](<[https://link](https://github.com/easterapps/vscode-script-runner/issues)>).
+File bugs, feature requests in [Github Issues](https://github.com/easterapps/vscode-script-runner/issues).
 
-**Leave a review on Visual Studio Marketplace.**
+**Leave a review on [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=easterapps.script-runner).**
