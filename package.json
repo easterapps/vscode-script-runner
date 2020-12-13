@@ -120,6 +120,16 @@
 													"items": {
 														"type": "string"
 													}
+												},
+												"defaultValuePath": {
+													"type": "boolean",
+													"description": "The default value to put in the field. Only for text inputs.",
+													"default": false
+												},
+												"defaultValueFilename": {
+													"type": "boolean",
+													"description": "The default value to put in the field. Only for text inputs.",
+													"default": false
 												}
 											}
 										}

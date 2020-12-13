@@ -18,6 +18,8 @@ export interface IFormConfiguration {
 	default?: string;
 	password?: boolean;
 	options?: string[];
+	defaultValuePath?: boolean;
+	defaultValueFilename?: boolean;
 }
 
 export type IVariableConfiguration = { [id: string]: string };
