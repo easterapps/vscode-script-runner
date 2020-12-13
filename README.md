@@ -72,19 +72,21 @@ Sample command definition:
 }
 ```
 
-| Name                | Description                                                                         | Required | Type    |
-| ------------------- | ----------------------------------------------------------------------------------- | -------- | ------- |
-| `identifier`        | Identifier used to do key binding. Use alphanumerical and hyphen/underscore only.   | yes      | string  |
-| `description`       | Description of the command.                                                         | yes      | string  |
-| `command`           | Command to execute (with variables).                                                | yes      | string  |
-| `working_directory` | The working directory in which to execute the script.                               |          | string  |
-| `form`              | A list of questions to ask in order to obtain values for variables.                 |          | array   |
-| `variable`          | The variable name.                                                                  |          | string  |
-| `question`          | The question to ask the user.                                                       |          |
-| `password`          | Input is a password. Default is false.  Suggestion: use also show_in_console: false |          | boolean |
-| `default`           | The default value to put in the field. Only for text inputs.                        |          | string  |
-| `options`           | List of options (string)                                                            |          | array   |
-| `variables`         | List of variables (string)                                                          |          | array   |
+| Name                   | Description                                                                                            | Required | Type    |
+| ---------------------- | ------------------------------------------------------------------------------------------------------ | -------- | ------- |
+| `identifier`           | Identifier used to do key binding. Use alphanumerical and hyphen/underscore only.                      | yes      | string  |
+| `description`          | Description of the command.                                                                            | yes      | string  |
+| `command`              | Command to execute (with variables).                                                                   | yes      | string  |
+| `working_directory`    | The working directory in which to execute the script.                                                  |          | string  |
+| `form`                 | A list of questions to ask in order to obtain values for variables.                                    |          | array   |
+| `variable`             | The variable name.                                                                                     |          | string  |
+| `question`             | The question to ask the user.                                                                          |          | string  |
+| `password`             | Input is a password. Default is false.  Suggestion: use also show_in_console: false                    |          | boolean |
+| `default`              | The default value to put in the field. Only for text inputs.                                           |          | string  |
+| `defaultValuePath`     | Overrides the default value with the current file path. Empty if no file open. password option ignored |          | boolean |
+| `defaultValueFilename` | Overrides the default value with the current filename. Empty if no file open. password option ignored  |          | boolean |
+| `options`              | List of options (string)                                                                               |          | array   |
+| `variables`            | List of variables (string)                                                                             |          | array   |
 
 ## Full Configuration Sample
 
@@ -124,6 +126,19 @@ Sample command definition:
             "variable": "$var1",
             "question": "What is $var1?",
             "default": "Test 1"
+          }
+        ]
+      },
+      {
+        "identifier": "filepath1",
+        "description": "Filepath",
+        "command": "echo $path ",
+        "working_directory": "$tmp",
+        "form": [
+          {
+            "variable": "$path",
+            "question": "What is the path",
+            "defaultValuePath": true
           }
         ]
       }

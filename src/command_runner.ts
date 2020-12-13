@@ -3,6 +3,8 @@ import { workspace, window, OutputChannel, TerminalOptions } from "vscode";
 import { IConfiguration, ICommandConfiguration, IFormConfiguration } from "./configuration";
 import { VariableManager } from "./variable_manager";
 import { Terminal } from "./terminal";
+var path = require("path");
+var vscode = require("vscode");
 
 export class CommandRunner {
 	private outputChannel: OutputChannel;
@@ -61,6 +63,14 @@ export class CommandRunner {
 		if (form && form.length > 0) {
 			let currentStep = 0;
 			const firstStep = form[currentStep];
+			let currentlyOpenTabfilePath = ""
+			let currentlyOpenTabfileName = ""
+			try {
+				currentlyOpenTabfilePath = vscode.window.activeTextEditor.document.fileName;
+				currentlyOpenTabfileName = path.basename(currentlyOpenTabfilePath);
+			} catch (error) {
+
+			}
 
 			const askQuestion = (step: IFormConfiguration) => {
 				if (step.options) {
@@ -69,13 +79,27 @@ export class CommandRunner {
 						ignoreFocusOut: true,
 					});
 				} else {
-
-					return window.showInputBox({
-						prompt: step.question,
-						value: step.default,
-						password: step.password,
-						ignoreFocusOut: true,
-					});
+					if (step.defaultValuePath) {
+						return window.showInputBox({
+							prompt: step.question,
+							value: currentlyOpenTabfilePath,
+							ignoreFocusOut: true,
+						});
+					} else {
+						if (step.defaultValueFilename) {
+							return window.showInputBox({
+								prompt: step.question,
+								value: currentlyOpenTabfileName,
+								ignoreFocusOut: true,
+							});
+						}
+						return window.showInputBox({
+							prompt: step.question,
+							value: step.default,
+							password: step.password,
+							ignoreFocusOut: true,
+						});
+					}
 				}
 			};
 
