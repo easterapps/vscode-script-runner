@@ -27,8 +27,6 @@ jobs:
     - run: npm install
     - run: npm ci
     - run: npm run compile 
-    - name: Get tag name
-      uses: olegtarasov/get-tag@v2
     - name: "Publish to Marketplace"
       uses: lannonbr/vsce-action@master
       with:
@@ -38,7 +36,7 @@ jobs:
     - name: "Package release"
       uses: lannonbr/vsce-action@master
       with:
-        args: "package $GIT_TAG_NAME"
+        args: "package"
       env:
         VSCE_TOKEN: ${{ secrets.vsce_token }}
     - name: Upload binaries to release
