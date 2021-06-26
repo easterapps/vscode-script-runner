@@ -53,7 +53,7 @@ export class CommandRunner {
 				};
 
 			}
-			currentTerminal = Terminal.getTerminal(options);
+			currentTerminal = Terminal.getTerminal(options).;
 			currentTerminal.sendText(builtCommand);
 			this.outputChannel.appendLine('Executing command: ' + builtCommand + ' with options ' + JSON.stringify(options));
 		};

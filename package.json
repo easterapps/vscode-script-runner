@@ -3,14 +3,14 @@
 	"displayName": "Script Runner",
 	"description": "Run command line scripts (with parameters) directly from #VSCode with a configured form. Create and customize your own commands to simplify your way of working.",
 	"icon": "resources/logo/icon_128.gif",
-	"version": "0.6.1",
+	"version": "0.7.0",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/easterapps/vscode-script-runner"
 	},
 	"publisher": "easterapps",
 	"engines": {
-		"vscode": "^1.30.0"
+		"vscode": "^1.57.0"
 	},
 	"scripts": {
 		"vscode:prepublish": "npm run compile",
@@ -20,12 +20,17 @@
 		"package": "vsce package"
 	},
 	"devDependencies": {
-		"typescript": "^2.6.1",
-		"@types/vscode": "^1.30.0",
-		"vscode-test": "^1.1.37",
-		"tslint": "^5.8.0",
-		"@types/node": "^7.0.43",
-		"@types/mocha": "^8.2.0"
+		"@types/glob": "^7.1.3",
+		"@types/mocha": "^8.2.2",
+		"@types/node": "^14.14.3",
+		"@types/vscode": "^1.57.0",
+		"glob": "^7.1.7",
+		"mocha": "^8.4.0",
+		"@typescript-eslint/eslint-plugin": "^4.26.0",
+		"@typescript-eslint/parser": "^4.26.0",
+		"eslint": "^7.1.0",
+		"typescript": "^4.3.2",
+		"vscode-test": "^1.5.2"
 	},
 	"categories": [
 		"Other"
