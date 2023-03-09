@@ -39,7 +39,7 @@ export function activate(context: vscode.ExtensionContext) {
 export function setupStatusBar() {
 	statusBarItem = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Right, 100);
 	statusBarItem.command = 'script-runner.run';
-	statusBarItem.text = `Script Runner`;
+	statusBarItem.text = `cmd exec`;
 }
 export function updateStatusBarItem(context: vscode.ExtensionContext): void {
 
