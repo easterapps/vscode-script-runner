@@ -20,7 +20,7 @@ Create and customize your own commands to simplify your way of working.
 
 Follow the instructions [How to setup cmd exec](#how-to-setup-script-runner) to use this extension.
 
-## How to setup Script Runner
+## How to setup cmd exec
 
 1. Use `ctrl+shift+P` or `F1` to invoke the Command Palette
 2. Type `Preferences: Open Settings (JSON)`
