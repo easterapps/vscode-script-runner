@@ -1,10 +1,10 @@
-<h1>Script Runner for VS Code</h1>
+<h1>cmd exec for VS Code</h1>
 
 ![version](https://vsmarketplacebadge.apphb.com/version/easterapps.script-runner.png)
 ![version](https://vsmarketplacebadge.apphb.com/rating-star/easterapps.script-runner.png)
 
-- [What is Script Runner](#what-is-script-runner)
-- [How to setup Script Runner](#how-to-setup-script-runner)
+- [What is cmd exec](#what-is-cmd-exec)
+- [How to setup cmd exec](#how-to-setup-cmd-exec)
 - [Full Configuration Sample](#full-configuration-sample)
 - [Usage](#usage)
   - [Use your defined Commands from Command Palette](#use-your-defined-commands-from-command-palette)
@@ -13,12 +13,12 @@
 - [Use a different shell](#use-a-different-shell)
 - [Contributing](#contributing)
 
-## What is Script Runner
+## What is cmd exec
 
 Run command line scripts (with parameters) directly from #VSCode with a configured form.
 Create and customize your own commands to simplify your way of working.
 
-Follow the instructions [How to setup Script Runner](#how-to-setup-script-runner) to use this extension.
+Follow the instructions [How to setup cmd exec](#how-to-setup-script-runner) to use this extension.
 
 ## How to setup Script Runner
 
